@@ -24,6 +24,9 @@ A = [
 [e,v] = attMatrixExtraction(A);
 q = [e*sin(v/2);cos(v)]
 
+clear;
+disp("Task 9 ended")
+
 function [e,v] = attMatrixExtraction(A)
     tr = trace(A);
     v = acos((tr-1)/2);
