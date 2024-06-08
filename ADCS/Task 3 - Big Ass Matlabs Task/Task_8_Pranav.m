@@ -22,11 +22,11 @@ function [e,v] = attMatrixExtraction(A)
     %now using the explicit form of the attitude matrix
     c = cos(v);
 
-    e_1 = realify(sqrt((A(1,1)-c)/(1-c)));
-    e_2 = realify(sqrt((A(2,2)-c)/(1-c)));
-    e_3 = realify(sqrt((A(3,3)-c)/(1-c)));
+    e_1 = (sqrt((A(1,1)-c)/(1-c)));
+    e_2 = (sqrt((A(2,2)-c)/(1-c)));
+    e_3 = (sqrt((A(3,3)-c)/(1-c)));
 
-    e = [e_1, e_2, e_3];
+    e = [e_1; e_2; e_3];
 end
 
 function q_real = realify(q)
