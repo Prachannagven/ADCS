@@ -9,17 +9,17 @@ alt = 5e6;
 %Setup
 dt = 1;
 tStart = 0;
-tStop = 24000;
+tStop = 600;
 tSpan = tStart:dt:tStop;
 
 %Initial Conditions
 x0 = [
-    5200;
+    0;
     R_e + alt;
     0;
     sqrt(G*M_e/(R_e+alt)); %centripetal force
-    2500;
-    5500/;
+    0;
+    0;
 ];
 
 C = [
