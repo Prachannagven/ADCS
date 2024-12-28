@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.4) (preloaded format=pdflatex 2023.9.1)  29 DEC 2024 00:03
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.4) (preloaded format=pdflatex 2023.9.1)  29 DEC 2024 00:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -138,16 +138,16 @@ LaTeX Font Info:    ... okay on input line 3.
 This exam contains 0 questions with 0 parts, 0 subparts, and 0 subsubparts.
 (ADCS_R1_Recruitment_Paper.aux) ) 
 Here is how much of TeX's memory you used:
- 1539 strings out of 476331
- 24937 string characters out of 5787766
+ 1543 strings out of 476331
+ 24981 string characters out of 5787766
  1850660 words of memory out of 5000000
- 22052 multiletter control sequences out of 15000+600000
- 512287 words of font info for 32 fonts, out of 8000000 for 9000
+ 22054 multiletter control sequences out of 15000+600000
+ 512892 words of font info for 34 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 48i,10n,52p,148b,178s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 48i,10n,52p,158b,178s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/prana/AppData/Local/Programs/MiKTeX/
-fonts/type1/public/amsfonts/cm/cmr10.pfb>
-Output written on ADCS_R1_Recruitment_Paper.pdf (1 page, 12334 bytes).
+fonts/type1/public/amsfonts/cm/cmbx12.pfb>
+Output written on ADCS_R1_Recruitment_Paper.pdf (1 page, 10914 bytes).
 PDF statistics:
  11 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
