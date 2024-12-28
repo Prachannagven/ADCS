@@ -1,0 +1,125 @@
+\documentclass[a4paper, 11pt]{article}
+
+
+%\usepackage{mathpazo}
+\usepackage[onehalfspacing]{setspace}
+\usepackage{graphicx}
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage[table]{xcolor}
+\usepackage{gensymb}
+\usepackage[]{booktabs}
+\usepackage[utf8]{inputenc}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{xhfill}
+\usepackage{enumitem}
+\usepackage{multicol}
+
+\usepackage{geometry}
+\geometry{
+	total={150mm,227mm},
+	left=30mm,
+	top=30mm,
+}
+
+\newcommand{\cuspac}{\hspace{0.5cm}}
+\newcommand{\longspac}{\hspace{1cm}}
+% \newcommand{\dho}{\partial} %Use this command for partial derivative command
+
+%%%%%%%Uncomment to remove header numbering%%%%%%%%%%
+%\renewcommand{\thesection}{}
+%\renewcommand{\thesubsection}{}
+%\renewcommand{\thesubsubsection}{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\title{Day 3 - ADCS Session 3} %Title of Document
+\date{February 15th 2024} %Date of Publishing
+\author{Pranav Chandra N V\\2023AAPS0013P} %Author
+
+\begin{document}
+	\maketitle
+	\newpage
+	\tableofcontents
+	\newpage
+	
+	\section{Introduction}
+	\begin{itemize}
+		\item Estimation is, in essence, guesswork. We use multiple sensors and a bunch of nice math to figure out things like distance, velocity, rotation, magnetic field and so on.
+		\item The reason we use estimation is because of the inherent uncertainties that exist in all of our measurements.
+		\item In order to take measurements, we have to realize that a base reference must exist.
+	\end{itemize}
+	\section{States}
+	\begin{itemize}
+		\item In order to understand what we are in, we define the "state" of a system. A state is essentially the set of variables that describe a given system.
+		\item We use time as our "base variable" and then find everything based on that.
+		\item The other variabels that we consider are called dynamical variables, because they are dependent on time.
+		\item This works pretty well since in a classical system, oncce you have the positions and the velocities of a system, you can figure out everything about a system.
+		\item However, we still want to get all the parameters. To get this, we create a system of equations to create something called a dynamic model.
+	\end{itemize}
+		
+	\subsection{Characterizing States}
+	\begin{itemize}
+			\item To characterize a state, it's often found that representing the state of the system in a vector works well.
+			\subitem Vector $\neq$ direction + magnitude. We use the formal definition of a vector space, not just a vector to allow for a wider range of data storage, handling and operational capability.
+			\item 
+	\end{itemize}
+		
+	\section{Estimation}
+	\begin{itemize}
+		\item Given a set of data, how do we actually estimate? We generally take a bunch of estimates and then take the average. Why do we not take the median or mode though?
+		\subitem The mode generally doesn't repeat due to the precision of values nowadays, the chances of two measurements being equal are minuscule. 
+		\subitem We use the average since it's more efficient for data storage. We can continually compute the average using the previous average \textbf{without} storing too much data.
+		\item When we have something in a constant spot, and we have multiple measurements, we get the stationary formula.
+		\item When we have a moving object at a constant velocity, we can use something called the alpha-beta filter:
+		\begin{equation}
+			\hat{x}_{n,n} = \hat{x}_{n,n-1} + \alpha (z_n-\hat{x}_{n,n-1})
+		\end{equation}
+		\begin{equation}
+			\begin{split}
+				\hat{\dot{x}}_{n,n} = \hat{\dot{x}}_{n,n-1} + \beta\left(\frac{z_n - \hat{x}_{n,n-1}}{\Delta t}\right)
+			\end{split}
+		\end{equation}
+		\subitem \textbf{Note: }$x_{n,n-1}$ reads as position of $n$ at time $n-1$.
+		\item $\alpha$ and $\beta$ are factors that allow us to tune how much we taken in our new values over time. In cases when we don't trust our new measurements, we can lower $\alpha$, but when we trust our value is good, we can increase $\alpha$.
+		\item Now you'll notice that we have $x_{n,n-1}$ which we don't have. To get this, we use the state extrapolation equation:
+		\begin{equation}
+			x_n = x_{n-1} + \Delta t \dot{x}_{n-1}
+		\end{equation}
+		\begin{equation}
+			\dot{x}_{n-1} = \dot{x}_n
+		\end{equation}
+	\end{itemize}
+	
+		\subsection{Alpha-Beta-Gamma Filter}
+		\begin{itemize}
+			\item Previously we considered a constant velocity. Now, we can use the alpha-beta-gamma filter to linearize estimations for acceleration.
+			\item They are as follows:
+			\begin{equation}
+				\hat{x}_{n,n} = \hat{x}_{n,n-1} + \alpha (z_n-\hat{x}_{n,n-1})
+			\end{equation}
+			\begin{equation}
+				\begin{split}
+					\hat{\dot{x}}_{n,n} = \hat{\dot{x}}_{n,n-1} + \beta\left(\frac{z_n - \hat{x}_{n,n-1}}{\Delta t}\right)
+				\end{split}
+			\end{equation}
+			\begin{equation}
+				\hat{\ddot{x}}_{n,n} = \hat{\ddot{x}}_{n, n-1} + \gamma \left(\frac{z_n - \hat{x}_{n,n-1}}{0.5 t^2}\right)
+			\end{equation}
+			\item Our state extrapolation factors for the same will be as follows:
+			\begin{equation}
+				\hat{\ddot{x}}_{n,n-1} = \hat{\ddot{x}}_{n-1,n-1}
+			\end{equation}
+			\begin{equation}
+				\hat{\dot{x}}_{n, n-1} = \hat{\dot{a}}_{n-1, n-1} + \hat{\ddot{x}}_{n, n-1}\Delta t
+			\end{equation}
+			\begin{equation}
+				\hat{x} = \hat{x} + \hat{\dot{x}}_{n, n-1}\Delta t + \frac{1}{2}\hat{x}_{n,n-1} \Delta t^2 
+			\end{equation}
+		\end{itemize}
+	
+	\section{State as a Random Variable}
+	\begin{itemize}
+		\item 
+	\end{itemize}
+\end{document}

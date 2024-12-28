@@ -1,0 +1,78 @@
+\documentclass[a4paper, 11pt]{article}
+
+
+%\usepackage{mathpazo}
+\usepackage[onehalfspacing]{setspace}
+\usepackage{graphicx}
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage[table]{xcolor}
+\usepackage{gensymb}
+\usepackage[]{booktabs}
+\usepackage[utf8]{inputenc}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{xhfill}
+\usepackage{enumitem}
+\usepackage{background} %Package for adding a watermark
+\usepackage[space]{grffile}
+\usepackage{tikz} %An interesting package that is currently being used for numbers in circles.
+
+\backgroundsetup{scale = 1, angle = 0, firstpage = false, opacity=0.1, contents=\includegraphics{"C:/Users/prana/Desktop/1 - College/3 Project Papers/Watermark.png"}}
+
+\usepackage{geometry}
+\geometry{
+	total={150mm,227mm},
+	left=30mm,
+	top=30mm,
+}
+
+\newcommand{\cuspac}{\hspace{0.5cm}}
+\newcommand{\longspac}{\hspace{1cm}}
+% \newcommand{\dho}{\partial} %Use this command for partial derivative command
+
+%%%%%%%Uncomment to remove header numbering%%%%%%%%%%
+%\renewcommand{\thesection}{}
+%\renewcommand{\thesubsection}{}
+%\renewcommand{\thesubsubsection}{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\title{Team Anant Probation Notes - Attitude Determination and Control Subsystem(ADCS)} %Title of Document
+\date{12th February 2024} %Date of Publishing
+\author{Pranav Chandra N V\\2023AAPS0013P} %Author
+
+\begin{document}
+	\maketitle
+	\newpage
+	
+	\newpage
+	\section{Control Systems}
+	\begin{itemize}
+		\item Deals with changing the attitude and position of the satellite.
+		\item We start with our most basic definition. A \textbf{system} is any\textit{thing} that can change by virtue of the application of external and internal forces.
+		\item A signal in this particular case is essentially any partcular quantity that we might be able to measure from the system.
+		\item Control systems operate with differential equations.
+	\end{itemize}
+	\subsection{Block Representation of a System}
+	\begin{itemize}
+		\item We generally use block diagrams to represent systems.
+		\begin{itemize}
+			\item \textbf{Arrow} - Represents a signal.
+			\item \textbf{Gain Block} - Gives us how the system will change the system at a certain point.
+			\item \textbf{Sum Block} - Takes in two signals and outputs a single signal.
+		\end{itemize}
+		\item A system may have various types of gain blocks. To completely explain a system, you'd need all its arrows and gain blocks.
+		\item A closed loop control system is where some kind of feedback is taken back to the input or one of the gain/sum blocks to change the output.
+		\item Open loop control systems don't give us any feedback to incorporate into the output, while closed loop control systems do.
+		\item They have specific representation and syntax that has to be kept in mind.
+	\end{itemize}
+	\subsection{The Laplace Domain}
+	\begin{itemize}
+		\item Analysis and solving differential equations for control systems is complicated in the standard domain.
+		\item Instead, we transform points in time to points in the \textit{S} domain. 
+		\item This transformed domain is known as the Laplace Domain. It simplifies calculations.
+		\item By applying Laplace transformations, we obtain polynomials that are easier to solve than differential equations.
+	\end{itemize}
+	
+	
+\end{document}
